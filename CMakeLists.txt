@@ -38,8 +38,11 @@ find_package(Websocketpp 0.7.0 REQUIRED MODULE)
 find_package(OpenSSL 1.0.1 REQUIRED MODULE)
 find_package(ZLIB REQUIRED MODULE)
 
-set(REQUIRED_LIBS OpenSSL::SSL ZLIB::ZLIB Spdlog::Spdlog JSON::JSON Asio::Asio dl Threads::Threads)
-
+if(MSVC)
+    set(REQUIRED_LIBS OpenSSL::SSL ZLIB::ZLIB Spdlog::Spdlog JSON::JSON Asio::Asio Threads::Threads)
+else()
+    set(REQUIRED_LIBS OpenSSL::SSL ZLIB::ZLIB Spdlog::Spdlog JSON::JSON Asio::Asio dl Threads::Threads)
+endif()
 option(BUILD_SHARED_LIBS "Build the shared library" ON)
 option(BUILD_EXAMPLES "Build example programs" OFF)
 
