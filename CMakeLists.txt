@@ -12,7 +12,7 @@ math(EXPR AEGIS_VERSION_PATCH ${CMAKE_MATCH_3})
 string(CONCAT AEGIS_VERSION ${AEGIS_VERSION_MAJOR}.${AEGIS_VERSION_MINOR}.${AEGIS_VERSION_PATCH})
 
 if(MSVC)
-    add_compile_options("/W3" "$<$<CONFIG:RELEASE>:/O2>")
+    add_compile_options("/W3" "$<$<CONFIG:RELEASE>:/O2>" "$<$<CONFIG:DEBUG>:/Zi>")
 else()
 	set(CMAKE_SHARED_LINKER_FLAGS ${CMAKE_SHARED_LINKER_FLAGS} "-Wl,--no-undefined")
 	set(AEGIS_CFLAGS -Wno-sign-compare -Wno-unknown-pragmas -Wno-unused-variable -Wno-noexcept-type -Wno-unused-result -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-missing-field-initializers)
