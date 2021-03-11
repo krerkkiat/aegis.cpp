@@ -146,7 +146,7 @@ if (BUILD_SHARED_LIBS)
 	)
 
 	SET(PKG_CONFIG_LIBS
-		"-L\${libdir} -laegis -lssl -lcrypto -lpthread -lz -ldl"
+		"-L\${libdir} -laegis -lssl -lcrypto -lpthread -lz"
 	)
 	SET(PKG_CONFIG_CFLAGS
 		"-I/usr/include -I\${includedir} -I${Asio_INCLUDE_DIR} -I${JSON_INCLUDE_DIR} -I${Spdlog_INCLUDE_DIR} -I${Websocketpp_INCLUDE_DIR} -I${ZLIB_INCLUDE_DIR} -DAEGIS_DYN_LINK"
